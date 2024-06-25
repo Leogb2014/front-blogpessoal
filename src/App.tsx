@@ -1,22 +1,26 @@
-import { useState } from 'react'
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './paginas/home/Home'
-
+import Login from './paginas/login/Login'
+import Navbar from './components/navBar/Navbar'
+import Footer from './components/footer/Footer'
 
 function App() {
-  const[valor, setValor] = useState(0);
 
-  function handleClick(){
-    setValor(valor + 1);
-  }
   return (
     <>
-    <div>
-      <p>O valor é: {valor}</p>
-      <button onClick={handleClick}>Adicionar 1 </button>
-    </div>
-    <Home title='Home'
-          description='Este é um compponente Home que recebe props'/>
+      <BrowserRouter> 
+        <Navbar/>
+           <div className='min-h-[80vh]'>
+           <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/login' element={<Login />}/>
+              <Route path='/home' element={<Home/>}/>
+          </Routes>
+           </div>
+           <Footer/>
+      </BrowserRouter>
     </>
   )
 }

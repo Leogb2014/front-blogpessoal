@@ -1,43 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import './Home.css'
-import homeLogo from '../../assets/home.png'
+import React from 'react';
+import './Home.css';
 
-interface myProps {
-  title: string,
-  description: string
-}
+function Home() {
 
-function Home(props:myProps) {
-  const[completed, setCompleted] = useState(false);
-  const[tarefa, setTarefa] = useState("");
-  const[logar, setLogar] = useState(false);
-
-  useEffect(() => {
-    if(completed) {
-      setTarefa('Parabéns! Você concluiu a tarefa!');
-    }
-  }, [completed])
   return (
     <>
-    <div>
-      <h2>Tarefa</h2>
-      <h3>{tarefa}</h3>
-      <p>Conclua a tarefa</p>
-      <button onClick={() => setCompleted(true)}>Concluir tarefa</button>
-    </div>
-      <h1 className='titulo'> {props.title}</h1>
-      <p>{props.description}</p>
+    <div className="bg-indigo-900 flex justify-center">
+      <div className='container grid grid-cols-2 text-white'>
+        <div className="flex flex-col gap-4 items-center justify-center py-4">
+          <h2 className='text-5xl font-bold'>Seja bem vinde!</h2>
+          <p className='text-xl'>Expresse aqui seus pensamentos e opniões</p>
 
-      <img src={homeLogo} className='img' alt="" />
-
-      {logar ? (
-        <h2>Bem vindo de volta!</h2>) : (
-          <button onClick={() => setLogar(true)}>entrar</button>
-        )
-      }
-    </>
+          <div className="flex justify-around gap-4">
+          
+            <button className='rounded bg-white text-blue-800 py-2 px-4'>Ver postagens</button>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    
   
-  )
+  </>
+);
 }
 
 export default Home
