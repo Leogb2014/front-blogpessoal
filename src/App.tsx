@@ -5,22 +5,28 @@ import Home from './paginas/home/Home'
 import Login from './paginas/login/Login'
 import Navbar from './components/navBar/Navbar'
 import Footer from './components/footer/Footer'
+import Cadastro from './paginas/cadastro/Cadastro'
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
 
   return (
     <>
-      <BrowserRouter> 
+    <AuthProvider>
+    <BrowserRouter> 
         <Navbar/>
            <div className='min-h-[80vh]'>
            <Routes>
-              <Route path='/' element={<Home/>}/>
+              <Route path='/' element={<Login/>}/>
               <Route path='/login' element={<Login />}/>
+              <Route path='/cadastro' element={<Cadastro/>}/>
               <Route path='/home' element={<Home/>}/>
           </Routes>
            </div>
            <Footer/>
       </BrowserRouter>
+    </AuthProvider>
+     
     </>
   )
 }
