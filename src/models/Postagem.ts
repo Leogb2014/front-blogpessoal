@@ -5,7 +5,7 @@ export default interface Postagem {
     id: number,
     titulo: string,
     texto: string,
-    data: Date,
-    tema: Tema ;
-    usuario: Usuario
+    data: string,
+    tema: Tema | null ;
+    usuario: Usuario | null;
 }

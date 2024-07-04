@@ -15,6 +15,7 @@ interface AuthProviderProps {
     children: ReactNode
 }
 
+// jeito de inicializar o objeto ao inves de declarar manualmente
 export const AuthContext = createContext({} as AuthContextProps)
 
 export function AuthProvider({ children }: AuthProviderProps) {
